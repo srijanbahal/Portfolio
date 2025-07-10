@@ -44,6 +44,7 @@ const Header: React.FC<HeaderProps> = ({
     const activeIndex = navItems.findIndex(item => item.href.slice(1) === activeSection);
     return activeIndex >= 0 ? activeIndex : 0;
   };
+
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -65,19 +66,6 @@ const Header: React.FC<HeaderProps> = ({
         }`}>
         <div className="flex justify-between items-center py-4 px-0">
           {/* Logo */}
-          
-          {/* <motion.div
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.4 }}
-            className="text-2xl flex font-bold font-serif bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
-          >
-           <img
-            src={nameLogo}
-            alt="Name Logo"
-            className="h-12 w-auto object-contain"
-          />
-          
-          </motion.div> */}
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.4 }}
@@ -86,44 +74,96 @@ const Header: React.FC<HeaderProps> = ({
            Srijan Bahal
           </motion.div>
 
-         
-
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 relative">
-            {/* Sliding indicator */}
+          {/* Desktop Navigation - Hidden below 1020px */}
+          <nav className="hidden xl:flex items-center relative">
+            {/* Sliding indicator background */}
             <motion.div
               animate={{
-                x: getSliderPosition() * 120, // Adjust based on your button width + spacing
+                x: getSliderPosition() * 112, // Adjusted for proper spacing
               }}
               transition={{
                 type: "spring",
-                stiffness: 300,
-                damping: 30,
+                stiffness: 400,
+                damping: 40,
               }}
-              className={`absolute top-0 bottom-0 w-20 rounded-lg ${
+              className={`absolute h-10 w-24 rounded-lg backdrop-blur-sm ${
                 darkMode 
-                  ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30' 
-                  : 'bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-400/20'
-              } backdrop-blur-sm`}
-              style={{ zIndex: -1 }}
+                  ? 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 border border-blue-400/40 shadow-lg shadow-blue-500/20' 
+                  : 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 shadow-lg shadow-blue-500/10'
+              }`}
+              style={{ zIndex: 0 }}
             />
-            {navItems.map((item) => (
-              <motion.button
-                key={item.name}
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.4 }}
-                onClick={() => scrollToSection(item.href)}
-                className={`px-3 py-2 rounded-lg transition-all duration-400 ${activeSection === item.href.slice(1)
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-500 text-white'
-                    : darkMode
-                      ? 'text-gray-300 hover:text-white hover:bg-white/10'
-                      : 'text-gray-700 hover:text-gray-900 hover:bg-black/10'
+            
+            {/* Navigation items */}
+            <div className="flex space-x-2 relative z-10">
+              {navItems.map((item) => (
+                <motion.button
+                  key={item.name}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`px-4 py-2 rounded-lg transition-all duration-400 font-medium text-sm ${
+                    activeSection === item.href.slice(1)
+                      ? darkMode 
+                        ? 'text-white' 
+                        : 'text-gray-900'
+                      : darkMode
+                        ? 'text-gray-300 hover:text-white'
+                        : 'text-gray-700 hover:text-gray-900'
                   }`}
-              >
-                {item.name}
-              </motion.button>
-            ))}
+                  style={{ minWidth: '88px' }}
+                >
+                  {item.name}
+                </motion.button>
+              ))}
+            </div>
+          </nav>
+
+          {/* Responsive Navigation for medium screens (768px - 1020px) */}
+          <nav className="hidden md:flex xl:hidden items-center relative">
+            {/* Sliding indicator background */}
+            <motion.div
+              animate={{
+                x: getSliderPosition() * 100, // Adjusted for medium screens
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 400,
+                damping: 40,
+              }}
+              className={`absolute h-9 w-20 rounded-lg backdrop-blur-sm ${
+                darkMode 
+                  ? 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 border border-blue-400/40 shadow-lg shadow-blue-500/20' 
+                  : 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 shadow-lg shadow-blue-500/10'
+              }`}
+              style={{ zIndex: 0 }}
+            />
+            
+            {/* Navigation items */}
+            <div className="flex space-x-1 relative z-10">
+              {navItems.map((item) => (
+                <motion.button
+                  key={item.name}
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ duration: 0.4 }}
+                  onClick={() => scrollToSection(item.href)}
+                  className={`px-3 py-2 rounded-lg transition-all duration-400 font-medium text-xs ${
+                    activeSection === item.href.slice(1)
+                      ? darkMode 
+                        ? 'text-white' 
+                        : 'text-gray-900'
+                      : darkMode
+                        ? 'text-gray-300 hover:text-white'
+                        : 'text-gray-700 hover:text-gray-900'
+                  }`}
+                  style={{ minWidth: '76px' }}
+                >
+                  {item.name}
+                </motion.button>
+              ))}
+            </div>
           </nav>
 
           {/* Dark Mode Toggle & Mobile Menu */}
@@ -141,13 +181,13 @@ const Header: React.FC<HeaderProps> = ({
               {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </motion.button>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Button - Shows below 1020px */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.9 }}
               transition={{ duration: 0.4 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`md:hidden p-2 rounded-lg transition-colors duration-400 backdrop-blur-sm ${darkMode
+              className={`xl:hidden p-2 rounded-lg transition-colors duration-400 backdrop-blur-sm ${darkMode
                   ? 'text-gray-300 hover:text-white hover:bg-white/10 border border-white/20'
                   : 'text-gray-700 hover:text-gray-900 hover:bg-black/10 border border-black/20'
                 }`}
@@ -158,7 +198,7 @@ const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation - Shows below 1020px */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -166,7 +206,7 @@ const Header: React.FC<HeaderProps> = ({
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className={`md:hidden border-t backdrop-blur-xl ${darkMode ? 'bg-black/20 border-white/10' : 'bg-white/20 border-black/10'
+            className={`xl:hidden border-t backdrop-blur-xl ${darkMode ? 'bg-black/20 border-white/10' : 'bg-white/20 border-black/10'
               }`}
           >
             <div className="px-4 py-4 space-y-2">
