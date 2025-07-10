@@ -2,6 +2,8 @@ import React from 'react';
 import { Code, Palette, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggerAnimation } from '../hooks/useScrollAnimation';
+import mainImg  from "../assets/myself.jpeg"
+
 
 interface AboutProps {
   darkMode: boolean;
@@ -70,11 +72,11 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className={`w-full h-96 rounded-2xl overflow-hidden backdrop-blur-sm border ${
+            <div className={`w-full h-120 rounded-2xl overflow-hidden backdrop-blur-sm border ${
               darkMode ? 'bg-white/5 border-white/10' : 'bg-black/5 border-black/10'
             }`}>
               <img
-                src="https://images.pexels.com/photos/3763188/pexels-photo-3763188.jpeg?auto=compress&cs=tinysrgb&w=600"
+                src={mainImg}
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
@@ -96,21 +98,18 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
             <h3 className={`text-2xl font-bold mb-6 ${
               darkMode ? 'text-white' : 'text-gray-900'
             }`}>
-              Passionate Developer with a Creative Edge
+              Passionate about ML & AI and Its Applications
             </h3>
             <p className={`text-lg mb-6 ${
               darkMode ? 'text-gray-300' : 'text-gray-600'
             }`}>
-              With over 5 years of experience in web development, I specialize in creating
-              digital solutions that are both visually stunning and technically robust.
-              My journey began with a curiosity for how things work, and it has evolved
-              into a passion for building experiences that matter.
+              I'm a Final year Undergrad Student, Have a very deep interest in Neural Nets and Understanding Architectures and Building Intelligent Systems. I Have a Product Driven Mindset and Im Currently Diving Deep in DL and GenAI and Exploring its Application With Developement. I Find Dvelopement Empowering and Fascinating. Looking Forward to Working and Collaborating In work and discussions related to Dev and DL.
             </p>
             <p className={`text-lg mb-8 ${
               darkMode ? 'text-gray-300' : 'text-gray-600'
             }`}>
               When I'm not coding, you'll find me exploring new technologies, contributing
-              to open-source projects, or mentoring aspiring developers. I believe in the
+              to open-source projects, Reading Or In the Gym Working Out. I believe in the
               power of technology to solve real-world problems and create positive change.
             </p>
 

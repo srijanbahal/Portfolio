@@ -13,7 +13,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
 
   const seriousProjects = [
     {
-      title: "E-Commerce Platform",
+      title: "GraphGPT",
       description: "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
       image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
       tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
@@ -21,7 +21,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       demo: "https://example.com"
     },
     {
-      title: "Task Management App",
+      title: "VisionX",
       description: "Collaborative project management tool with real-time updates, file sharing, and team analytics.",
       image: "https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=600",
       tech: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
@@ -29,10 +29,35 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       demo: "https://example.com"
     },
     {
-      title: "Analytics Dashboard",
+      title: "Stock Risk Analysis Assistant",
       description: "Business intelligence dashboard with interactive charts, real-time data visualization, and reporting.",
       image: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600",
       tech: ["Vue.js", "D3.js", "Python", "FastAPI"],
+      github: "https://github.com",
+      demo: "https://example.com"
+    },
+    {
+      title: "Learning & Implementing Papers From Scratch",
+      description: "Business intelligence dashboard with interactive charts, real-time data visualization, and reporting.",
+      image: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600",
+      tech: ["Vue.js", "D3.js", "Python", "FastAPI"],
+      github: "https://github.com",
+      demo: "https://example.com"
+    },
+    {
+      title: "Sentiment Analysis On Tweets",
+      description: "Business intelligence dashboard with interactive charts, real-time data visualization, and reporting.",
+      image: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600",
+      tech: ["Vue.js", "D3.js", "Python", "FastAPI"],
+      github: "https://github.com",
+      demo: "https://example.com"
+    }
+    ,
+    {
+      title: "E2E Multi Label Kidney Disease Classification",
+      description: "Interactive virtual pet that learns from user interactions and grows with unique personality traits.",
+      image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=600",
+      tech: ["React", "Three.js", "Machine Learning", "Local Storage"],
       github: "https://github.com",
       demo: "https://example.com"
     }

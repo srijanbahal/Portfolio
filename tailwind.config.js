@@ -6,6 +6,7 @@ export default {
     extend: {
       fontFamily: {
         'sans': ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'cursive' : ['"Allura"', '"Dancing Script"', '"Great Vibes"', 'cursive']
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

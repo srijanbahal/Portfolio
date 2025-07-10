@@ -168,7 +168,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className={`text-4xl sm:text-6xl lg:text-7xl font-bold mb-6 ${
+          className={`text-4xl sm:text-6xl lg:text-7xl font-bold mb-10 ${
             darkMode ? 'text-white' : 'text-gray-900'
           }`}
           style={{
@@ -182,7 +182,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
             darkMode 
               ? 'from-violet-400 via-blue-400 to-cyan-400' 
               : 'from-blue-600 via-purple-600 to-indigo-600'
-          } bg-clip-text text-transparent`}>
+          } bg-clip-text text-transparent font-cursive`}>
             Srijan 
           </span>
         </motion.h1>
