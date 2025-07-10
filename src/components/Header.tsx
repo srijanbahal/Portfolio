@@ -39,6 +39,11 @@ const Header: React.FC<HeaderProps> = ({
     setMobileMenuOpen(false);
   };
 
+  // Calculate slider position based on active section
+  const getSliderPosition = () => {
+    const activeIndex = navItems.findIndex(item => item.href.slice(1) === activeSection);
+    return activeIndex >= 0 ? activeIndex : 0;
+  };
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -84,7 +89,24 @@ const Header: React.FC<HeaderProps> = ({
          
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex space-x-8 relative">
+            {/* Sliding indicator */}
+            <motion.div
+              animate={{
+                x: getSliderPosition() * 120, // Adjust based on your button width + spacing
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+              }}
+              className={`absolute top-0 bottom-0 w-20 rounded-lg ${
+                darkMode 
+                  ? 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30' 
+                  : 'bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-400/20'
+              } backdrop-blur-sm`}
+              style={{ zIndex: -1 }}
+            />
             {navItems.map((item) => (
               <motion.button
                 key={item.name}

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Code, Palette, Zap } from 'lucide-react';
+import React, { useState } from 'react';
+import { Code, Palette, Zap, ChevronDown, ChevronUp, Target, Lightbulb, Rocket } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggerAnimation } from '../hooks/useScrollAnimation';
 import mainImg  from "../assets/Myself.jpeg"
@@ -12,6 +12,7 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({ darkMode }) => {
   const sectionRef = useScrollAnimation();
   const highlightsRef = useStaggerAnimation(0.2);
+  const [showWhyHireMe, setShowWhyHireMe] = useState(false);
 
   const highlights = [
     {
@@ -31,6 +32,23 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
     }
   ];
 
+  const whyHireMePoints = [
+    {
+      icon: <Target className="h-6 w-6" />,
+      title: "Problem-Solving Mindset",
+      description: "I approach challenges with analytical thinking and innovative solutions, turning complex problems into elegant implementations."
+    },
+    {
+      icon: <Lightbulb className="h-6 w-6" />,
+      title: "Continuous Learning",
+      description: "Always staying ahead of the curve with latest technologies and best practices, ensuring cutting-edge solutions."
+    },
+    {
+      icon: <Rocket className="h-6 w-6" />,
+      title: "Results-Driven",
+      description: "Focused on delivering measurable impact and value, with a track record of successful project completions."
+    }
+  ];
   return (
     <section id="about" className={`py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden ${
       darkMode ? 'bg-gradient-to-b from-black via-gray-950 to-black' : 'bg-gradient-to-b from-white via-gray-50 to-white'
@@ -113,6 +131,26 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
               power of technology to solve real-world problems and create positive change.
             </p>
 
+            {/* Why Hire Me Toggle Button */}
+            <motion.button
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.4 }}
+              onClick={() => setShowWhyHireMe(!showWhyHireMe)}
+              className={`mb-8 px-6 py-3 rounded-xl font-semibold transition-all duration-400 backdrop-blur-sm border flex items-center space-x-2 ${
+                darkMode 
+                  ? 'bg-gradient-to-r from-violet-600/20 to-blue-600/20 text-white border-violet-400/30 hover:from-violet-600/30 hover:to-blue-600/30' 
+                  : 'bg-gradient-to-r from-blue-600/10 to-purple-600/10 text-gray-900 border-blue-400/30 hover:from-blue-600/20 hover:to-purple-600/20'
+              }`}
+            >
+              <span>Why Hire Me?</span>
+              <motion.div
+                animate={{ rotate: showWhyHireMe ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ChevronDown className="h-5 w-5" />
+              </motion.div>
+            </motion.button>
             {/* Highlights */}
             <div className="grid sm:grid-cols-3 gap-6" ref={highlightsRef}>
               {highlights.map((highlight, index) => (
@@ -152,4 +190,106 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
   );
 };
 
+        {/* Why Hire Me Expandable Section */}
+        <motion.div
+          initial={false}
+          animate={{
+            height: showWhyHireMe ? 'auto' : 0,
+            opacity: showWhyHireMe ? 1 : 0,
+          }}
+          transition={{ duration: 0.6, ease: "easeInOut" }}
+          className="overflow-hidden mt-16"
+        >
+          <motion.div
+            initial={{ y: -20 }}
+            animate={{ y: showWhyHireMe ? 0 : -20 }}
+            transition={{ duration: 0.6, delay: showWhyHireMe ? 0.2 : 0 }}
+            className={`p-8 rounded-2xl backdrop-blur-sm border ${
+              darkMode 
+                ? 'bg-gradient-to-br from-violet-900/20 via-blue-900/20 to-cyan-900/20 border-violet-400/20' 
+                : 'bg-gradient-to-br from-blue-50/80 via-purple-50/80 to-indigo-50/80 border-blue-200/40'
+            } shadow-2xl`}
+          >
+            <div className="text-center mb-8">
+              <motion.h3 
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: showWhyHireMe ? 1 : 0.9, opacity: showWhyHireMe ? 1 : 0 }}
+                transition={{ duration: 0.5, delay: showWhyHireMe ? 0.3 : 0 }}
+                className={`text-3xl font-bold mb-4 ${
+                  darkMode ? 'text-white' : 'text-gray-900'
+                }`}
+              >
+                Why Choose Me?
+              </motion.h3>
+              <motion.div 
+                initial={{ width: 0 }}
+                animate={{ width: showWhyHireMe ? '100px' : 0 }}
+                transition={{ duration: 0.8, delay: showWhyHireMe ? 0.4 : 0 }}
+                className="h-1 bg-gradient-to-r from-violet-500 to-cyan-500 mx-auto mb-6"
+              />
+            </div>
+
+            <motion.p 
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: showWhyHireMe ? 0 : 20, opacity: showWhyHireMe ? 1 : 0 }}
+              transition={{ duration: 0.6, delay: showWhyHireMe ? 0.5 : 0 }}
+              className={`text-lg text-center mb-8 max-w-4xl mx-auto ${
+                darkMode ? 'text-gray-300' : 'text-gray-700'
+              }`}
+            >
+              I bring a unique combination of technical expertise, creative problem-solving, and a passion for innovation. 
+              My experience spans from deep learning research to full-stack development, allowing me to bridge the gap 
+              between cutting-edge AI technology and practical, user-focused applications.
+            </motion.p>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {whyHireMePoints.map((point, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ y: 30, opacity: 0, scale: 0.9 }}
+                  animate={{ 
+                    y: showWhyHireMe ? 0 : 30, 
+                    opacity: showWhyHireMe ? 1 : 0,
+                    scale: showWhyHireMe ? 1 : 0.9
+                  }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: showWhyHireMe ? 0.6 + (index * 0.1) : 0 
+                  }}
+                  whileHover={{
+                    scale: 1.05,
+                    y: -10,
+                    rotateY: 5,
+                    boxShadow: darkMode 
+                      ? "0 25px 50px rgba(139, 92, 246, 0.3)" 
+                      : "0 25px 50px rgba(59, 130, 246, 0.2)"
+                  }}
+                  className={`p-6 rounded-xl backdrop-blur-sm border transition-all duration-400 ${
+                    darkMode 
+                      ? 'bg-white/5 border-white/10 hover:bg-white/10' 
+                      : 'bg-white/60 border-white/80 hover:bg-white/80'
+                  } shadow-lg hover:shadow-xl`}
+                >
+                  <div className={`inline-flex p-3 rounded-lg mb-4 ${
+                    darkMode 
+                      ? 'bg-gradient-to-r from-violet-500/20 to-cyan-500/20 text-violet-400' 
+                      : 'bg-gradient-to-r from-blue-500/10 to-purple-500/10 text-blue-600'
+                  }`}>
+                    {point.icon}
+                  </div>
+                  <h4 className={`text-xl font-bold mb-3 ${
+                    darkMode ? 'text-white' : 'text-gray-900'
+                  }`}>
+                    {point.title}
+                  </h4>
+                  <p className={`text-sm leading-relaxed ${
+                    darkMode ? 'text-gray-400' : 'text-gray-600'
+                  }`}>
+                    {point.description}
+                  </p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
 export default About;
