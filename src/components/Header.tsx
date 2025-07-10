@@ -45,6 +45,19 @@ const Header: React.FC<HeaderProps> = ({
     return activeIndex >= 0 ? activeIndex : 0;
   };
 
+  // Calculate precise slider positioning
+  const getSliderStyles = (isTablet = false) => {
+    const activeIndex = navItems.findIndex(item => item.href.slice(1) === activeSection);
+    if (activeIndex < 0) return { x: 0 };
+    
+    if (isTablet) {
+      // Tablet calculations: 56px button width + 16px gap = 72px spacing
+      return { x: activeIndex * 72 };
+    } else {
+      // Desktop calculations: 68px button width + 24px gap = 92px spacing  
+      return { x: activeIndex * 92 };
+    }
+  };
   return (
     <motion.header
       initial={{ y: -100 }}
@@ -78,15 +91,13 @@ const Header: React.FC<HeaderProps> = ({
           <nav className="hidden xl:flex items-center relative">
             {/* Sliding indicator background */}
             <motion.div
-              animate={{
-                x: getSliderPosition() * 104, // Precise spacing for desktop
-              }}
+              animate={getSliderStyles(false)}
               transition={{
                 type: "spring",
                 stiffness: 300,
                 damping: 30,
               }}
-              className={`absolute h-10 w-20 rounded-lg backdrop-blur-sm ${
+              className={`absolute h-10 w-[68px] rounded-lg backdrop-blur-sm ${
                 darkMode 
                   ? 'bg-gradient-to-r from-blue-500/40 to-purple-500/40 border border-blue-400/50 shadow-lg shadow-blue-500/25' 
                   : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 border border-blue-400/40 shadow-lg shadow-blue-500/15'
@@ -112,7 +123,7 @@ const Header: React.FC<HeaderProps> = ({
                         ? 'text-gray-300 hover:text-white'
                         : 'text-gray-700 hover:text-gray-900'
                   }`}
-                  style={{ minWidth: '68px' }}
+                  style={{ width: '68px' }}
                 >
                   {item.name}
                 </motion.button>
@@ -124,15 +135,13 @@ const Header: React.FC<HeaderProps> = ({
           <nav className="hidden md:flex xl:hidden items-center relative">
             {/* Sliding indicator background */}
             <motion.div
-              animate={{
-                x: getSliderPosition() * 88, // Adjusted for tablet screens
-              }}
+              animate={getSliderStyles(true)}
               transition={{
                 type: "spring",
                 stiffness: 300,
                 damping: 30,
               }}
-              className={`absolute h-9 w-16 rounded-lg backdrop-blur-sm ${
+              className={`absolute h-9 w-[56px] rounded-lg backdrop-blur-sm ${
                 darkMode 
                   ? 'bg-gradient-to-r from-blue-500/40 to-purple-500/40 border border-blue-400/50 shadow-lg shadow-blue-500/25' 
                   : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 border border-blue-400/40 shadow-lg shadow-blue-500/15'
@@ -158,7 +167,7 @@ const Header: React.FC<HeaderProps> = ({
                         ? 'text-gray-300 hover:text-white'
                         : 'text-gray-700 hover:text-gray-900'
                   }`}
-                  style={{ minWidth: '56px' }}
+                  style={{ width: '56px' }}
                 >
                   {item.name}
                 </motion.button>
