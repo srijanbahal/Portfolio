@@ -49,6 +49,7 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
       description: "Focused on delivering measurable impact and value, with a track record of successful project completions."
     }
   ];
+
   return (
     <section id="about" className={`py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden ${
       darkMode ? 'bg-gradient-to-b from-black via-gray-950 to-black' : 'bg-gradient-to-b from-white via-gray-50 to-white'
@@ -151,6 +152,7 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                 <ChevronDown className="h-5 w-5" />
               </motion.div>
             </motion.button>
+            
             {/* Highlights */}
             <div className="grid sm:grid-cols-3 gap-6" ref={highlightsRef}>
               {highlights.map((highlight, index) => (
@@ -185,10 +187,6 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
             </div>
           </motion.div>
         </div>
-      </div>
-    </section>
-  );
-};
 
         {/* Why Hire Me Expandable Section */}
         <motion.div
@@ -292,4 +290,9 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
             </div>
           </motion.div>
         </motion.div>
+      </div>
+    </section>
+  );
+};
+
 export default About;
