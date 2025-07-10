@@ -2,7 +2,7 @@ import React from 'react';
 import { Code, Palette, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggerAnimation } from '../hooks/useScrollAnimation';
-import mainImg  from "../assets/myself.jpeg"
+import mainImg  from "../assets/Myself.jpeg"
 
 
 interface AboutProps {
