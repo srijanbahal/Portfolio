@@ -13,34 +13,39 @@ const Resume: React.FC<ResumeProps> = ({ darkMode }) => {
 
   const education = [
     {
-      degree: "Bachelor of Science in Computer Science",
-      school: "University of Technology",
+      degree: "Bachelors of Technology In Artificial Intelligence & Data Science",
+      school: "Guru Gobind Singh IndraPrastha University, New Delhi",
       year: "2019",
-      gpa: "3.8/4.0"
+      gpa: "7.3/10"
     },
-    {
-      degree: "Full Stack Web Development Bootcamp",
-      school: "Tech Academy",
-      year: "2018",
-      gpa: "Certificate"
-    }
+    // {
+    //   degree: "Full Stack Web Development Bootcamp",
+    //   school: "Tech Academy",
+    //   year: "2018",
+    //   gpa: "Certificate"
+    // }
   ];
 
   const certifications = [
     {
-      name: "AWS Certified Developer - Associate",
-      issuer: "Amazon Web Services",
+      name: "Machine Learning By Andrew Ng",
+      issuer: "Coursera",
+      year: "2024"
+    },
+    {
+      name: "Deep Learning Specialization By Andrew Ng",
+      issuer: "Coursera",
+      year: "2024"
+    },
+    // {
+    //   name: "Google Cloud Professional Cloud Architect",
+    //   issuer: "Google Cloud",
+    //   year: "2022"
+    // },
+    {
+      name: "Web Developement Course",
+      issuer: "Udemy",
       year: "2023"
-    },
-    {
-      name: "Google Cloud Professional Cloud Architect",
-      issuer: "Google Cloud",
-      year: "2022"
-    },
-    {
-      name: "Meta React Developer Certificate",
-      issuer: "Meta",
-      year: "2021"
     }
   ];
 
@@ -89,7 +94,9 @@ const Resume: React.FC<ResumeProps> = ({ darkMode }) => {
               scale: 1.01,
               y: -10,
               rotateY: -5,
-              boxShadow: darkMode ? "0 25px 50px rgba(34, 197, 94, 0.3)" : "0 25px 50px rgba(0, 0, 0, 0.1)"
+              boxShadow: darkMode ? "0 25px 50px rgba(59, 130, 246, 0.4)" : "0 25px 50px rgba(0, 0, 0, 0.1)",
+              animationDelay: 1,
+            
             }}
             transition={{ duration: 0.4 }}
             className={`p-8 rounded-xl backdrop-blur-sm border transition-all duration-400 ${
@@ -232,10 +239,13 @@ const Resume: React.FC<ResumeProps> = ({ darkMode }) => {
               <p className={`text-sm ${
                 darkMode ? 'text-gray-400' : 'text-gray-600'
               }`}>
-                Experienced Full Stack Developer with 5+ years of expertise in building 
+                {/* Experienced Full Stack Developer with 5+ years of expertise in building 
                 scalable web applications. Proven track record of leading development teams 
-                and delivering high-quality solutions that drive business growth.
+                and delivering high-quality solutions that drive business growth. */}
+                A Final Year DS underGrad, Just love to learn and Deep Dive About Neural Nets and Tech and Implement them in Real World Application to  Make Something brilliant And Impactful.
+                Have Worked in research and Now looking for Using my Skills to Work in Corporate. <br />
               </p>
+              <span className="text-sm font-normal pt-4 text-white">Looking for New Opportunities.</span>
             </div>
             
             <div>
@@ -247,10 +257,10 @@ const Resume: React.FC<ResumeProps> = ({ darkMode }) => {
               <ul className={`space-y-2 text-sm ${
                 darkMode ? 'text-gray-400' : 'text-gray-600'
               }`}>
-                <li>• Led development of e-commerce platform serving 100K+ users</li>
-                <li>• Improved application performance by 40% through optimization</li>
-                <li>• Mentored 10+ junior developers and conducted technical interviews</li>
-                <li>• Implemented CI/CD pipeline reducing deployment time by 60%</li>
+                <li>• Architectured a Hybrid CNN+LSTM model for Multi-Label Audio Classification</li>
+                <li>• Runner up in AceHack Hackathon 2023 & Participated in 3+ Hackathons</li>
+                <li>• Solved 200+ DSA Questions on LeetCode and 5 Star on HackerRank in C++ and Problem Solving</li>
+                <li>• Working on a Complier For AI Reseach Paper</li>
               </ul>
             </div>
           </div>

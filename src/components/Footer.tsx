@@ -34,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             <span className={`text-sm ${
               darkMode ? 'text-gray-500' : 'text-gray-600'
             }`}>
-              by John Doe
+              by Srijan Bahal 
             </span>
           </div>
           
@@ -42,7 +42,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             <p className={`text-sm ${
               darkMode ? 'text-gray-500' : 'text-gray-600'
             }`}>
-              © 2024 All rights reserved.
+              © 2025 All rights reserved.
             </p>
             
             <motion.button

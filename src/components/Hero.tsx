@@ -120,7 +120,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1.2, ease: "easeOut" }}
-        className={`absolute inset-x-4 top-1/2 transform -translate-y-1/2 h-96 rounded-3xl backdrop-blur-xl border ${
+        className={`absolute inset-x-4 top-4/2 transform -translate-y-1/2 h-96 rounded-3xl backdrop-blur-xl border ${
           darkMode 
             ? 'bg-white/5 border-white/10 shadow-2xl shadow-violet-500/10' 
             : 'bg-white/40 border-white/60 shadow-2xl shadow-black/5'
@@ -183,7 +183,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
               ? 'from-violet-400 via-blue-400 to-cyan-400' 
               : 'from-blue-600 via-purple-600 to-indigo-600'
           } bg-clip-text text-transparent`}>
-            John Doe
+            Srijan 
           </span>
         </motion.h1>
         
@@ -200,7 +200,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
               : 'drop-shadow(0 2px 10px rgba(0, 0, 0, 0.1))'
           }}
         >
-          Full Stack Developer & Creative Problem Solver
+         AI & Machine Learning Engineer  
         </motion.p>
         
         <motion.p 
@@ -223,9 +223,9 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
           className="flex justify-center space-x-6 mb-12"
         >
           {[
-            { icon: Github, href: "https://github.com", color: "hover:text-gray-400" },
-            { icon: Linkedin, href: "https://linkedin.com", color: "hover:text-blue-400" },
-            { icon: Mail, href: "mailto:john@example.com", color: "hover:text-green-400" }
+            { icon: Github, href: "https://github.com/srijanbahal", color: "hover:text-gray-400" },
+            { icon: Linkedin, href: "https://www.linkedin.com/in/srijan-bahal-ab458b253/", color: "hover:text-blue-400" },
+            { icon: Mail, href: "srijanbahal10@gmail.com", color: "hover:text-green-400" }
           ].map(({ icon: Icon, href, color }, index) => (
             <motion.a
               key={index}
@@ -257,13 +257,12 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
         <motion.button
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1.1 }}
+          transition={{ duration: 1, delay: 1.1}}
           whileHover={{ 
             scale: 1.05, 
             y: -5
           }}
           whileTap={{ scale: 0.95 }}
-          transition={{ duration: 0.6 }}
           onClick={scrollToAbout}
           className={`relative px-12 py-4 rounded-full text-lg font-semibold transition-all duration-500 backdrop-blur-xl border overflow-hidden ${
             darkMode

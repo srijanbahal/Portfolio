@@ -13,41 +13,43 @@ const Experience: React.FC<ExperienceProps> = ({ darkMode }) => {
 
   const experiences = [
     {
-      title: "Senior Full Stack Developer",
-      company: "TechCorp Solutions",
-      location: "San Francisco, CA",
-      period: "2022 - Present",
-      description: "Lead a team of 5 developers in building scalable web applications. Implemented microservices architecture that improved system performance by 40%.",
-      achievements: [
-        "Led migration from monolithic to microservices architecture",
-        "Mentored junior developers and conducted code reviews",
-        "Implemented CI/CD pipeline reducing deployment time by 60%"
-      ]
-    },
-    {
-      title: "Full Stack Developer",
-      company: "StartupXYZ",
-      location: "Austin, TX",
-      period: "2020 - 2022",
-      description: "Developed and maintained multiple client projects using React, Node.js, and various databases. Collaborated with design team to implement pixel-perfect UIs.",
-      achievements: [
-        "Built 15+ responsive web applications from scratch",
-        "Optimized database queries improving response time by 35%",
-        "Integrated third-party APIs and payment systems"
-      ]
-    },
-    {
-      title: "Frontend Developer",
-      company: "WebStudio Pro",
+      title: "Research Intern",
+      company: "GGSIPU",
       location: "Remote",
-      period: "2019 - 2020",
-      description: "Specialized in creating interactive user interfaces and optimizing web performance. Worked closely with UX designers to bring mockups to life.",
+      period: "July 2024 - Aug 2024",
+      description: "Lead a team of 2 Fellow Mates, and Sutdied About Audio Features ( Spectoral & Temporal Features ) in Depth, And How Audio features  overall ccontributes to a its different classes",
       achievements: [
-        "Developed reusable component library used across 10+ projects",
-        "Achieved 95+ PageSpeed score on all production websites",
-        "Implemented accessibility standards (WCAG 2.1 AA compliance)"
+        "Performed in Depth EDA on audio Features (MFCC, Mel-Spectrogram, chroma, etc.)",
+        "Trained Various Different ML Classification Models such as SVM, Random Forest, XGBoost  Achieving only a 76% accuracy.",
+        "Experimented with LSTM and CNN Based Multi label Classification.",
+        "Architectured a Hybrid LSTM + CNN Model  for best Catching up the both Temporal and Spectral Features and Achieving a Increased accuracy of 86%.",
+        "Performed a HyperParameter Tuning on the Final Hybrid model with Optuna"
       ]
-    }
+    },
+    // {
+    //   title: "Full Stack Developer",
+    //   company: "StartupXYZ",
+    //   location: "Austin, TX",
+    //   period: "2020 - 2022",
+    //   description: "Developed and maintained multiple client projects using React, Node.js, and various databases. Collaborated with design team to implement pixel-perfect UIs.",
+    //   achievements: [
+    //     "Built 15+ responsive web applications from scratch",
+    //     "Optimized database queries improving response time by 35%",
+    //     "Integrated third-party APIs and payment systems"
+    //   ]
+    // },
+    // {
+    //   title: "Frontend Developer",
+    //   company: "WebStudio Pro",
+    //   location: "Remote",
+    //   period: "2019 - 2020",
+    //   description: "Specialized in creating interactive user interfaces and optimizing web performance. Worked closely with UX designers to bring mockups to life.",
+    //   achievements: [
+    //     "Developed reusable component library used across 10+ projects",
+    //     "Achieved 95+ PageSpeed score on all production websites",
+    //     "Implemented accessibility standards (WCAG 2.1 AA compliance)"
+    //   ]
+    // }
   ];
 
   return (
@@ -131,19 +133,21 @@ const Experience: React.FC<ExperienceProps> = ({ darkMode }) => {
                         {exp.period}
                       </span>
                     </div>
-                    
+                    <div className="flex justify-between m-6">
+
+                    <div className="flex-item text-left font-serif">
+                      
                     <h3 className={`text-xl font-bold mb-1 ${
-                      darkMode ? 'text-white' : 'text-gray-900'
+                      darkMode ? 'text-slate-200' : 'text-gray-900'
                     }`}>
                       {exp.title}
                     </h3>
-                    
                     <h4 className={`text-lg font-semibold mb-2 ${
                       darkMode ? 'text-gray-300' : 'text-gray-700'
                     }`}>
                       {exp.company}
                     </h4>
-                    
+                    </div>
                     <div className="flex items-center space-x-2 mb-4">
                       <MapPin className={`h-4 w-4 ${
                         darkMode ? 'text-gray-500' : 'text-gray-500'
@@ -154,14 +158,17 @@ const Experience: React.FC<ExperienceProps> = ({ darkMode }) => {
                         {exp.location}
                       </span>
                     </div>
+                    </div>
                     
-                    <p className={`text-sm mb-4 ${
+                    
+                    
+                    <p className={`text-sm mb-4 text-center ${
                       darkMode ? 'text-gray-400' : 'text-gray-600'
                     }`}>
                       {exp.description}
                     </p>
                     
-                    <ul className={`space-y-2 ${
+                    <ul className={`space-y-2 text-left ${
                       darkMode ? 'text-gray-500' : 'text-gray-500'
                     }`}>
                       {exp.achievements.map((achievement, achievementIndex) => (

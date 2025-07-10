@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({
             transition={{ duration: 0.4 }}
             className="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
           >
-            John Doe
+            Srijan Bahal
           </motion.div>
 
           {/* Desktop Navigation */}
@@ -143,10 +143,9 @@ const Header: React.FC<HeaderProps> = ({
                   key={item.name}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.1 , duration: 0.4 }}
                   whileHover={{ scale: 1.02, x: 10 }}
                   whileTap={{ scale: 0.95 }}
-                  transition={{ duration: 0.4 }}
                   onClick={() => scrollToSection(item.href)}
                   className={`block w-full text-left px-4 py-3 rounded-lg transition-all duration-400 backdrop-blur-sm ${
                     activeSection === item.href.slice(1)

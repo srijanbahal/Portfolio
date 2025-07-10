@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin, X } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useScrollAnimation, useStaggerAnimation } from '../hooks/useScrollAnimation';
 
@@ -35,19 +35,19 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
     {
       icon: <Mail className="h-6 w-6" />,
       title: "Email",
-      content: "john.doe@example.com",
-      link: "mailto:john.doe@example.com"
+      content: "srijanbahal10@gmail.com",
+      link: "srijanbahal10@gmaim.com"
     },
     {
       icon: <Phone className="h-6 w-6" />,
       title: "Phone",
-      content: "+1 (555) 123-4567",
-      link: "tel:+15551234567"
+      content: "+91 9389203037",
+      link: "+91 9389203037"
     },
     {
       icon: <MapPin className="h-6 w-6" />,
       title: "Location",
-      content: "San Francisco, CA",
+      content: "New Delhi, India",
       link: "#"
     }
   ];
@@ -56,17 +56,17 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
     {
       icon: <Github className="h-6 w-6" />,
       name: "GitHub",
-      url: "https://github.com"
+      url: "https://github.com/srijanbahal"
     },
     {
       icon: <Linkedin className="h-6 w-6" />,
       name: "LinkedIn",
-      url: "https://linkedin.com"
+      url: "https://www.linkedin.com/in/srijan-bahal-ab458b253/"
     },
     {
-      icon: <Twitter className="h-6 w-6" />,
+      icon: <X className="h-6 w-6" />,
       name: "Twitter",
-      url: "https://twitter.com"
+      url: "https://x.com/srijan_bahal"
     }
   ];
 
@@ -102,7 +102,7 @@ const Contact: React.FC<ContactProps> = ({ darkMode }) => {
             darkMode ? 'text-gray-400' : 'text-gray-600'
           }`}>
             I'm always open to discussing new opportunities, interesting projects, 
-            or just having a friendly conversation about technology and development.
+            or just having a friendly conversation about Deep Learning, neural Nets & development.
           </p>
         </div>
 
