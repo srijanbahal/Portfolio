@@ -69,33 +69,33 @@ const Header: React.FC<HeaderProps> = ({
           <motion.div
             whileHover={{ scale: 1.05 }}
             transition={{ duration: 0.4 }}
-            className="text-2xl font-cursive font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
+            className="text-2xl font-cursive font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent z-20 relative"
           >
            Srijan Bahal
           </motion.div>
 
-          {/* Desktop Navigation - Hidden below 1020px */}
+          {/* Desktop Navigation - Shows above 1280px */}
           <nav className="hidden xl:flex items-center relative">
             {/* Sliding indicator background */}
             <motion.div
               animate={{
-                x: getSliderPosition() * 112, // Adjusted for proper spacing
+                x: getSliderPosition() * 104, // Precise spacing for desktop
               }}
               transition={{
                 type: "spring",
-                stiffness: 400,
-                damping: 40,
+                stiffness: 300,
+                damping: 30,
               }}
-              className={`absolute h-10 w-24 rounded-lg backdrop-blur-sm ${
+              className={`absolute h-10 w-20 rounded-lg backdrop-blur-sm ${
                 darkMode 
-                  ? 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 border border-blue-400/40 shadow-lg shadow-blue-500/20' 
-                  : 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 shadow-lg shadow-blue-500/10'
+                  ? 'bg-gradient-to-r from-blue-500/40 to-purple-500/40 border border-blue-400/50 shadow-lg shadow-blue-500/25' 
+                  : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 border border-blue-400/40 shadow-lg shadow-blue-500/15'
               }`}
-              style={{ zIndex: 0 }}
+              style={{ zIndex: 1 }}
             />
             
             {/* Navigation items */}
-            <div className="flex space-x-2 relative z-10">
+            <div className="flex space-x-6 relative z-10">
               {navItems.map((item) => (
                 <motion.button
                   key={item.name}
@@ -103,7 +103,7 @@ const Header: React.FC<HeaderProps> = ({
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.4 }}
                   onClick={() => scrollToSection(item.href)}
-                  className={`px-4 py-2 rounded-lg transition-all duration-400 font-medium text-sm ${
+                  className={`px-3 py-2 rounded-lg transition-all duration-400 font-medium text-sm relative z-10 ${
                     activeSection === item.href.slice(1)
                       ? darkMode 
                         ? 'text-white' 
@@ -112,7 +112,7 @@ const Header: React.FC<HeaderProps> = ({
                         ? 'text-gray-300 hover:text-white'
                         : 'text-gray-700 hover:text-gray-900'
                   }`}
-                  style={{ minWidth: '88px' }}
+                  style={{ minWidth: '68px' }}
                 >
                   {item.name}
                 </motion.button>
@@ -120,28 +120,28 @@ const Header: React.FC<HeaderProps> = ({
             </div>
           </nav>
 
-          {/* Responsive Navigation for medium screens (768px - 1020px) */}
+          {/* Tablet Navigation - Shows between 768px and 1279px */}
           <nav className="hidden md:flex xl:hidden items-center relative">
             {/* Sliding indicator background */}
             <motion.div
               animate={{
-                x: getSliderPosition() * 100, // Adjusted for medium screens
+                x: getSliderPosition() * 88, // Adjusted for tablet screens
               }}
               transition={{
                 type: "spring",
-                stiffness: 400,
-                damping: 40,
+                stiffness: 300,
+                damping: 30,
               }}
-              className={`absolute h-9 w-20 rounded-lg backdrop-blur-sm ${
+              className={`absolute h-9 w-16 rounded-lg backdrop-blur-sm ${
                 darkMode 
-                  ? 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 border border-blue-400/40 shadow-lg shadow-blue-500/20' 
-                  : 'bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-400/30 shadow-lg shadow-blue-500/10'
+                  ? 'bg-gradient-to-r from-blue-500/40 to-purple-500/40 border border-blue-400/50 shadow-lg shadow-blue-500/25' 
+                  : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 border border-blue-400/40 shadow-lg shadow-blue-500/15'
               }`}
-              style={{ zIndex: 0 }}
+              style={{ zIndex: 1 }}
             />
             
             {/* Navigation items */}
-            <div className="flex space-x-1 relative z-10">
+            <div className="flex space-x-4 relative z-10">
               {navItems.map((item) => (
                 <motion.button
                   key={item.name}
@@ -149,7 +149,7 @@ const Header: React.FC<HeaderProps> = ({
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.4 }}
                   onClick={() => scrollToSection(item.href)}
-                  className={`px-3 py-2 rounded-lg transition-all duration-400 font-medium text-xs ${
+                  className={`px-2 py-2 rounded-lg transition-all duration-400 font-medium text-xs relative z-10 ${
                     activeSection === item.href.slice(1)
                       ? darkMode 
                         ? 'text-white' 
@@ -158,7 +158,7 @@ const Header: React.FC<HeaderProps> = ({
                         ? 'text-gray-300 hover:text-white'
                         : 'text-gray-700 hover:text-gray-900'
                   }`}
-                  style={{ minWidth: '76px' }}
+                  style={{ minWidth: '56px' }}
                 >
                   {item.name}
                 </motion.button>
@@ -167,7 +167,7 @@ const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Dark Mode Toggle & Mobile Menu */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 z-20 relative">
             <motion.button
               whileHover={{ scale: 1.05, rotate: 180 }}
               whileTap={{ scale: 0.9 }}
@@ -181,13 +181,13 @@ const Header: React.FC<HeaderProps> = ({
               {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
             </motion.button>
 
-            {/* Mobile Menu Button - Shows below 1020px */}
+            {/* Mobile Menu Button - Shows below 768px */}
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.9 }}
               transition={{ duration: 0.4 }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`xl:hidden p-2 rounded-lg transition-colors duration-400 backdrop-blur-sm ${darkMode
+              className={`md:hidden p-2 rounded-lg transition-colors duration-400 backdrop-blur-sm ${darkMode
                   ? 'text-gray-300 hover:text-white hover:bg-white/10 border border-white/20'
                   : 'text-gray-700 hover:text-gray-900 hover:bg-black/10 border border-black/20'
                 }`}
@@ -198,7 +198,7 @@ const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Mobile Navigation - Shows below 1020px */}
+      {/* Mobile Navigation - Shows below 768px */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
@@ -206,7 +206,7 @@ const Header: React.FC<HeaderProps> = ({
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className={`xl:hidden border-t backdrop-blur-xl ${darkMode ? 'bg-black/20 border-white/10' : 'bg-white/20 border-black/10'
+            className={`md:hidden border-t backdrop-blur-xl ${darkMode ? 'bg-black/20 border-white/10' : 'bg-white/20 border-black/10'
               }`}
           >
             <div className="px-4 py-4 space-y-2">
