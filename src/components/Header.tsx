@@ -51,11 +51,11 @@ const Header: React.FC<HeaderProps> = ({
     if (activeIndex < 0) return { x: 0 };
     
     if (isTablet) {
-      // Tablet calculations: 56px button width + 16px gap = 72px spacing
-      return { x: activeIndex * 72 };
+      // Tablet calculations: 56px button width + 20px gap = 76px spacing
+      return { x: activeIndex * 76 };
     } else {
-      // Desktop calculations: 68px button width + 24px gap = 92px spacing  
-      return { x: activeIndex * 92 };
+      // Desktop calculations: 68px button width + 28px gap = 96px spacing  
+      return { x: activeIndex * 96 };
     }
   };
   return (
@@ -88,7 +88,7 @@ const Header: React.FC<HeaderProps> = ({
           </motion.div>
 
           {/* Desktop Navigation - Shows above 1280px */}
-          <nav className="hidden xl:flex items-center relative">
+          <nav className="hidden xl:flex items-center relative overflow-hidden">
             {/* Sliding indicator background */}
             <motion.div
               animate={getSliderStyles(false)}
@@ -106,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({
             />
             
             {/* Navigation items */}
-            <div className="flex space-x-6 relative z-10">
+            <div className="flex space-x-7 relative z-10">
               {navItems.map((item) => (
                 <motion.button
                   key={item.name}
@@ -132,7 +132,7 @@ const Header: React.FC<HeaderProps> = ({
           </nav>
 
           {/* Tablet Navigation - Shows between 768px and 1279px */}
-          <nav className="hidden md:flex xl:hidden items-center relative">
+          <nav className="hidden md:flex xl:hidden items-center relative overflow-hidden">
             {/* Sliding indicator background */}
             <motion.div
               animate={getSliderStyles(true)}
@@ -150,7 +150,7 @@ const Header: React.FC<HeaderProps> = ({
             />
             
             {/* Navigation items */}
-            <div className="flex space-x-4 relative z-10">
+            <div className="flex space-x-5 relative z-10">
               {navItems.map((item) => (
                 <motion.button
                   key={item.name}
