@@ -39,11 +39,11 @@ const Header: React.FC<HeaderProps> = ({
     setMobileMenuOpen(false);
   };
 
-  // Calculate slider position based on active section
-  const getSliderPosition = () => {
-    const activeIndex = navItems.findIndex(item => item.href.slice(1) === activeSection);
-    return activeIndex >= 0 ? activeIndex : 0;
-  };
+  // // Calculate slider position based on active section
+  // const getSliderPosition = () => {
+  //   const activeIndex = navItems.findIndex(item => item.href.slice(1) === activeSection);
+  //   return activeIndex >= 0 ? activeIndex : 0;
+  // };
 
   // Calculate precise slider positioning
   const getSliderStyles = (isTablet = false) => {
@@ -106,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({
             />
             
             {/* Navigation items */}
-            <div className="flex space-x-6 relative z-10">
+            <div className="flex space-x-2 relative z-10">
               {navItems.map((item) => (
                 <motion.button
                   key={item.name}
@@ -114,7 +114,7 @@ const Header: React.FC<HeaderProps> = ({
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.4 }}
                   onClick={() => scrollToSection(item.href)}
-                  className={`px-3 py-2 rounded-lg transition-all duration-400 font-medium text-sm relative z-10 ${
+                  className={`px-4 py-2 rounded-lg transition-all duration-400 font-medium text-sm ${
                     activeSection === item.href.slice(1)
                       ? darkMode 
                         ? 'text-white' 
@@ -123,14 +123,13 @@ const Header: React.FC<HeaderProps> = ({
                         ? 'text-gray-300 hover:text-white'
                         : 'text-gray-700 hover:text-gray-900'
                   }`}
-                  style={{ width: '68px' }}
+                  style={{ minWidth: '88px' }}
                 >
                   {item.name}
                 </motion.button>
               ))}
             </div>
           </nav>
-
           {/* Tablet Navigation - Shows between 768px and 1279px */}
           <nav className="hidden md:flex xl:hidden items-center relative">
             {/* Sliding indicator background */}

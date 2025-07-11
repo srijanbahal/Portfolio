@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { ExternalLink, Github, Sparkles, Briefcase } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import GraphGptImg from '../assets/GraphGpt.png'
+import Classification from '../assets/E2EClassification.png'
+import SmartATS from '../assets/SmartATS.png'
+import Sockets from '../assets/sockets.png'
+import imple from '../assets/imple.png'
+import paytm from '../assets/paytm.png'
+import visionX from '../assets/VisionX.png'
 
 interface ProjectsProps {
   darkMode: boolean;
@@ -14,78 +21,79 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
   const seriousProjects = [
     {
       title: "GraphGPT",
-      description: "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard.",
-      image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tech: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      github: "https://github.com",
+      description: "Conversational GPT with Non-Linear Chat Flow as Our Thougts are, and very Efficient Assistant for all Your day to Day tasks.",
+      src: GraphGptImg, 
+      tech: ["React", "FastAPI", "MongoDB", "Python", "LangChain"],
+      github: "https://github.com/srijanbahal/Grpah-Gpt",
       demo: "https://example.com"
     },
     {
-      title: "VisionX",
-      description: "Collaborative project management tool with real-time updates, file sharing, and team analytics.",
-      image: "https://images.pexels.com/photos/3184298/pexels-photo-3184298.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tech: ["Next.js", "TypeScript", "Prisma", "Socket.io"],
-      github: "https://github.com",
-      demo: "https://example.com"
+      title: "Smart ATS",
+      description: "An intelligent multi-agent ATS system leveraging fine-tuned LLMs, RAG, and dynamic analytics for personalized resume-job matching and career profiling",
+      src: SmartATS,
+      tech: ["Python", "FastAPI", "CrewAI", "langhcain", "StreamLit"],
+      github: "https://github.com/srijanbahal/Smart-ATS---Resume-Analyzer"
     },
+    
     {
       title: "Stock Risk Analysis Assistant",
-      description: "Business intelligence dashboard with interactive charts, real-time data visualization, and reporting.",
-      image: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tech: ["Vue.js", "D3.js", "Python", "FastAPI"],
-      github: "https://github.com",
+      description: "A Multi Agent Assistant with hierarichal Architure, Which Basically Analyze the Risk, Opportunity and Advice around the Stock Market.",
+      src: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600",
+      tech: ["Python", "FastAPI", "CrewAI", "langhcain", "StreamLit"],
+      github: "https://github.com/srijanbahal/financial-Analysis-agent",
       demo: "https://example.com"
     },
-    {
-      title: "Learning & Implementing Papers From Scratch",
-      description: "Business intelligence dashboard with interactive charts, real-time data visualization, and reporting.",
-      image: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tech: ["Vue.js", "D3.js", "Python", "FastAPI"],
-      github: "https://github.com",
-      demo: "https://example.com"
-    },
+    
     {
       title: "Sentiment Analysis On Tweets",
-      description: "Business intelligence dashboard with interactive charts, real-time data visualization, and reporting.",
-      image: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tech: ["Vue.js", "D3.js", "Python", "FastAPI"],
-      github: "https://github.com",
+      description: "A comparative study of traditional and transformer-based models for large-scale tweet sentiment analysis, focusing on interpretability, optimization, and semantic understanding.",
+      src: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600",
+      tech: ["Pytorch", "Python", "FastAPI", "StreamLit"],
+      github: "https://github.com/srijanbahal/Sentiment-Analysis-Using-BiLSTM-and-MHSA",
       demo: "https://example.com"
     }
     ,
     {
       title: "E2E Multi Label Kidney Disease Classification",
-      description: "Interactive virtual pet that learns from user interactions and grows with unique personality traits.",
-      image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tech: ["React", "Three.js", "Machine Learning", "Local Storage"],
-      github: "https://github.com",
+      description: "A multi-label deep learning assistant for detecting co-occurring kidney diseases from CT scans with model interpretability and MLOps integration",
+      src: Classification,
+      tech: ["Python", "StreamLit", "DVC", "MlFLow"],
+      github: "https://github.com/srijanbahal/Kidney-Disease-Classification-Deep-Learning-End-To-End-Pipeline",
       demo: "https://example.com"
     }
   ];
 
   const funProjects = [
     {
-      title: "Weather Mood Generator",
+      title: "VisionX",
       description: "AI-powered app that suggests activities and music based on current weather and your mood.",
-      image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tech: ["React", "OpenWeatherAPI", "Spotify API", "TensorFlow.js"],
-      github: "https://github.com",
+      src: visionX,
+      tech: ["React", "NextJS", "Python", "FastAPI"],
+      github: "https://github.com/srijanbahal/VisionX",
       demo: "https://example.com"
     },
     {
-      title: "Retro Game Collection",
-      description: "Collection of classic arcade games recreated using modern web technologies with pixel-perfect graphics.",
-      image: "https://images.pexels.com/photos/163036/mario-luigi-yoschi-figures-163036.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tech: ["JavaScript", "Canvas API", "Web Audio API", "CSS Animations"],
-      github: "https://github.com",
+      title: "PayTM Like Clone",
+      description: "A full-stack Paytm-like web application built from scratch enabling secure user authentication, wallet management, and seamless peer-to-peer transactions",
+      src: paytm,
+      tech: ["React", "NodeJS", "ExpressJS", "PostgreSQL"],
+      github: "https://github.com/srijanbahal/Sentiment-Analysis-Using-BiLSTM-and-MHSA",
       demo: "https://example.com"
     },
     {
-      title: "Virtual Pet Simulator",
-      description: "Interactive virtual pet that learns from user interactions and grows with unique personality traits.",
-      image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=600",
-      tech: ["React", "Three.js", "Machine Learning", "Local Storage"],
-      github: "https://github.com",
+      title: "Learning & Implementing Papers From Scratch",
+      description: "Just My learnings & Implementations From Scratch of some Cool DL/Ml Research Papers ",
+      src: imple,
+      tech: ["Pytorch", "Python", "TensorFlow", "keras"],
+      github: "https://github.com/srijanbahal/Learning-and-Implementing-dl-research-papers",
+      demo: "https://example.com"
+    },
+    {
+      title: "Multi User Group Chat Backend",
+      description: "A real-time, multi-user group chat system in C++ using socket programming and multithreaded concurrency for scalable communication.",
+      src: Sockets,
+      tech: ["C++", "Sockets", "MultiThreading", "Concurrency Handling "],
+      github: "https://github.com/srijanbahal/MultiUserGroupChatApp",
       demo: "https://example.com"
     }
   ];
@@ -210,7 +218,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
                   <motion.img
                     whileHover={{ scale: 1.08, rotate: 2 }}
                     transition={{ duration: 0.6 }}
-                    src={project.image}
+                    src={project.src}
                     alt={project.title}
                     className="w-full h-48 object-cover"
                   />
@@ -261,7 +269,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
                       <Github className="h-4 w-4" />
                       <span>Code</span>
                     </motion.a>
-                    <motion.a
+                    {/* <motion.a
                       whileHover={{ scale: 1.02, x: 5 }}
                       whileTap={{ scale: 0.95 }}
                       transition={{ duration: 0.4 }}
@@ -270,7 +278,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
                     >
                       <ExternalLink className="h-4 w-4" />
                       <span>Demo</span>
-                    </motion.a>
+                    </motion.a> */}
                   </div>
                 </div>
               </motion.div>
