@@ -132,29 +132,9 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
               power of technology to solve real-world problems and create positive change.
             </p>
 
-            {/* Why Hire Me Toggle Button */}
-            <motion.button
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ duration: 0.4 }}
-              onClick={() => setShowWhyHireMe(!showWhyHireMe)}
-              className={`mb-8 px-6 py-3 rounded-xl font-semibold transition-all duration-400 backdrop-blur-sm border flex items-center space-x-2 ${
-                darkMode 
-                  ? 'bg-gradient-to-r from-violet-600/20 to-blue-600/20 text-white border-violet-400/30 hover:from-violet-600/30 hover:to-blue-600/30' 
-                  : 'bg-gradient-to-r from-blue-600/10 to-purple-600/10 text-gray-900 border-blue-400/30 hover:from-blue-600/20 hover:to-purple-600/20'
-              }`}
-            >
-              <span>Why Hire Me?</span>
-              <motion.div
-                animate={{ rotate: showWhyHireMe ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                <ChevronDown className="h-5 w-5" />
-              </motion.div>
-            </motion.button>
             
             {/* Highlights */}
-            <div className="grid sm:grid-cols-3 gap-6" ref={highlightsRef}>
+            <div className="grid sm:grid-cols-3 gap-6 pb-6" ref={highlightsRef}>
               {highlights.map((highlight, index) => (
                 <motion.div 
                   key={index} 
@@ -181,11 +161,37 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                     darkMode ? 'text-gray-400' : 'text-gray-600'
                   }`}>
                     {highlight.description}
+
+                    
                   </p>
                 </motion.div>
               ))}
             </div>
+
+            {/* Why Hire Me Toggle Button */}
+            <motion.button
+              whileHover={{ scale: 1.02, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.4 }}
+              onClick={() => setShowWhyHireMe(!showWhyHireMe)}
+              className={`mb-8 px-6 py-3 rounded-xl font-semibold transition-all duration-400 backdrop-blur-sm border flex items-center space-x-2 ${
+                darkMode 
+                  ? 'bg-gradient-to-r from-violet-600/20 to-blue-600/20 text-white border-violet-400/30 hover:from-violet-600/30 hover:to-blue-600/30' 
+                  : 'bg-gradient-to-r from-blue-600/10 to-purple-600/10 text-gray-900 border-blue-400/30 hover:from-blue-600/20 hover:to-purple-600/20'
+              }`}
+            >
+              <span>Why Hire Me?</span>
+              <motion.div
+                animate={{ rotate: showWhyHireMe ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ChevronDown className="h-5 w-5" />
+              </motion.div>
+            </motion.button>
+
+            
           </motion.div>
+
         </div>
 
         {/* Why Hire Me Expandable Section */}
@@ -296,3 +302,4 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
 };
 
 export default About;
+

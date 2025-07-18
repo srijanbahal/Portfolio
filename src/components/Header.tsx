@@ -2,7 +2,7 @@ import React from 'react';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollPosition } from '../hooks/useScrollPosition';
-import nameLogo from '../assets/Name.png';
+// import nameLogo from '../assets/Name.png';
 
 
 interface HeaderProps {
@@ -51,10 +51,10 @@ const Header: React.FC<HeaderProps> = ({
     if (activeIndex < 0) return { x: 0 };
     
     if (isTablet) {
-      // Tablet calculations: 56px button width + 16px gap = 72px spacing
+      // Tablet: 56px button width + 16px gap = 72px spacing
       return { x: activeIndex * 72 };
     } else {
-      // Desktop calculations: 68px button width + 24px gap = 92px spacing  
+      // Desktop: 88px button width + 4px gap = 92px spacing  
       return { x: activeIndex * 92 };
     }
   };
@@ -97,7 +97,7 @@ const Header: React.FC<HeaderProps> = ({
                 stiffness: 300,
                 damping: 30,
               }}
-              className={`absolute h-10 w-[68px] rounded-lg backdrop-blur-sm ${
+              className={`absolute h-10 w-[88px] rounded-lg backdrop-blur-sm ${
                 darkMode 
                   ? 'bg-gradient-to-r from-blue-500/40 to-purple-500/40 border border-blue-400/50 shadow-lg shadow-blue-500/25' 
                   : 'bg-gradient-to-r from-blue-500/30 to-purple-500/30 border border-blue-400/40 shadow-lg shadow-blue-500/15'
@@ -106,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({
             />
             
             {/* Navigation items */}
-            <div className="flex space-x-2 relative z-10">
+            <div className="flex space-x-1 relative z-10">
               {navItems.map((item) => (
                 <motion.button
                   key={item.name}
@@ -114,7 +114,7 @@ const Header: React.FC<HeaderProps> = ({
                   whileTap={{ scale: 0.95 }}
                   transition={{ duration: 0.4 }}
                   onClick={() => scrollToSection(item.href)}
-                  className={`px-4 py-2 rounded-lg transition-all duration-400 font-medium text-sm ${
+                  className={`py-2 rounded-lg transition-all duration-400 font-medium text-sm ${
                     activeSection === item.href.slice(1)
                       ? darkMode 
                         ? 'text-white' 
@@ -123,7 +123,7 @@ const Header: React.FC<HeaderProps> = ({
                         ? 'text-gray-300 hover:text-white'
                         : 'text-gray-700 hover:text-gray-900'
                   }`}
-                  style={{ minWidth: '88px' }}
+                  style={{ width: '88px' }}
                 >
                   {item.name}
                 </motion.button>
