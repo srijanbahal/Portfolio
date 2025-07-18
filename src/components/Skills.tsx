@@ -14,34 +14,65 @@ const Skills: React.FC<SkillsProps> = ({ darkMode }) => {
     {
       title: "Frontend",
       skills: [
-        { name: "React", level: 95 },
-        { name: "TypeScript", level: 90 },
+        { name: "React", level: 90 },
         { name: "Next.js", level: 85 },
-        { name: "Tailwind CSS", level: 90 },
-        { name: "Vue.js", level: 80 },
+        { name: "TypeScript", level: 85 },
+        { name: "Tailwind CSS", level: 85 },
+        { name: "Streamlit", level: 75 },
       ]
     },
     {
-      title: "Backend",
+      title: "Backend & APIs",
       skills: [
-        { name: "Node.js", level: 90 },
-        { name: "Python", level: 85 },
+        { name: "FastAPI", level: 90 },
+        { name: "Flask", level: 85 },
+        { name: "Node.js", level: 80 },
+        { name: "Express.js", level: 80 },
+        { name: "Django", level: 70 },
+      ]
+    },
+    {
+      title: "Machine Learning & GenAI",
+      skills: [
+        { name: "TensorFlow", level: 81 },
+        { name: "PyTorch", level: 88 },
+        { name: "Deep Neural Networks", level: 85 },
+        { name: "LangChain", level: 87 },
+        { name: "CrewAI", level: 85 },
+      ]
+    },
+    {
+      title: "Data & Vector Stores",
+      skills: [
         { name: "PostgreSQL", level: 80 },
         { name: "MongoDB", level: 75 },
-        { name: "GraphQL", level: 70 },
+        { name: "Pinecone", level: 80 },
+        { name: "Neo4j", level: 75 },
+        { name: "FAISS", level: 80 },
       ]
     },
     {
-      title: "Tools & Others",
+      title: "MLOps & Tools",
       skills: [
         { name: "Git", level: 95 },
         { name: "Docker", level: 80 },
-        { name: "AWS", level: 75 },
-        { name: "Figma", level: 85 },
-        { name: "Jest", level: 80 },
+        { name: "MLflow", level: 75 },
+        { name: "DVC", level: 70 },
+        { name: "AWS EC2", level: 75 },
+      ]
+    },
+    {
+      title: "Programming Languages",
+      skills: [
+        { name: "Python", level: 85 },
+        { name: "TypeScript", level: 78 },
+        { name: "JavaScript", level: 80 },
+        { name: "C++", level: 90 },
+        { name: "SQL", level: 75 },
       ]
     }
   ];
+  
 
   return (
     <section id="skills" className={`py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden ${
