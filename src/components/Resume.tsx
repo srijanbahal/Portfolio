@@ -83,7 +83,7 @@ const Resume: React.FC<ResumeProps> = ({ darkMode }) => {
             whileHover={{ scale: 1.02, y: -3, boxShadow: "0 10px 30px rgba(59, 130, 246, 0.4)" }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.4 }}
-            className="bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-3 rounded-full font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-400 shadow-lg flex items-center space-x-2 mx-auto"
+            className="inline-flex items-center space-x-2 mx-auto bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-3 rounded-full font-semibold hover:from-blue-600 hover:to-purple-600 transition-all duration-400 shadow-lg"
           >
             <Download className="h-5 w-5" />
             <span>Download Resume</span>
