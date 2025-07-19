@@ -210,9 +210,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
           className={`text-lg max-w-3xl mx-auto mb-12 leading-relaxed ${
             darkMode ? 'text-gray-400' : 'text-gray-600'
           }`}
-        >
-          I craft digital experiences that combine beautiful design with powerful functionality.
-          Passionate about creating innovative solutions that make a difference.
+        >I build intelligent systems that seamlessly blend machine learning with full-stack development — turning ideas into practical, AI-powered solutions that solve real-world challenges.
         </motion.p>
 
         {/* Social Links */}

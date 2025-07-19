@@ -80,7 +80,7 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
   const funProjects = [
     {
       title: "VisionX",
-      description: "AI-powered app that suggests activities and music based on current weather and your mood.",
+      description: "VisionX is a full-stack web application that showcases classical computer vision algorithms with real-time visualization and parameter tuning capabilities.",
       src: visionX,
       tech: ["React", "NextJS", "Python", "FastAPI"],
       github: "https://github.com/srijanbahal/VisionX",
