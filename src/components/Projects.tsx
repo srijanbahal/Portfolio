@@ -9,6 +9,10 @@ import Sockets from '../assets/sockets.png'
 import imple from '../assets/imple.png'
 import paytm from '../assets/paytm.png'
 import visionX from '../assets/VisionX.png'
+import tradingSys from '../assets/Trading-sys.png'
+import tweets from '../assets/tweets.png'
+import groupChat from '../assets/groupChat.png'
+
 
 interface ProjectsProps {
   darkMode: boolean;
@@ -36,9 +40,9 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
     },
     
     {
-      title: "Stock Risk Analysis Assistant",
+      title: "AI Trading Assistant",
       description: "A Multi Agent Assistant with hierarichal Architure, Which Basically Analyze the Risk, Opportunity and Advice around the Stock Market.",
-      src: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600",
+      src: tradingSys,
       tech: ["Python", "FastAPI", "CrewAI", "langhcain", "StreamLit"],
       github: "https://github.com/srijanbahal/financial-Analysis-agent",
       demo: "https://example.com"
@@ -47,9 +51,18 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
     {
       title: "Sentiment Analysis On Tweets",
       description: "A comparative study of traditional and transformer-based models for large-scale tweet sentiment analysis, focusing on interpretability, optimization, and semantic understanding.",
-      src: "https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=600",
+      src: tweets,
       tech: ["Pytorch", "Python", "FastAPI", "StreamLit"],
       github: "https://github.com/srijanbahal/Sentiment-Analysis-Using-BiLSTM-and-MHSA",
+      demo: "https://example.com"
+    }
+    ,
+    {
+      title: "Full Stack Group chat Application",
+      description: "A Comprhensive Multi User Group Chat Application, Where user Can Signin/signout, Create groups and chat Real time and Do Calls and video Calls Real time.",
+      src: groupChat,
+      tech: ["Typescript", "React", "WebSockets", "FastAPI"],
+      github: "https://github.com/srijanbahal/Group-Chat-Application",
       demo: "https://example.com"
     }
     ,
@@ -60,7 +73,8 @@ const Projects: React.FC<ProjectsProps> = ({ darkMode }) => {
       tech: ["Python", "StreamLit", "DVC", "MlFLow"],
       github: "https://github.com/srijanbahal/Kidney-Disease-Classification-Deep-Learning-End-To-End-Pipeline",
       demo: "https://example.com"
-    }
+    },
+
   ];
 
   const funProjects = [
