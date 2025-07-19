@@ -76,7 +76,10 @@ const Resume: React.FC<ResumeProps> = ({ darkMode }) => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mb-8"></div>
           
-          <motion.button 
+          <motion.a
+            href="https://drive.google.com/file/d/1hRH1iROHcWBP6mjFNxMdngnrN-tU2rO1/view?usp=drive_link"
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.02, y: -3, boxShadow: "0 10px 30px rgba(59, 130, 246, 0.4)" }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.4 }}
@@ -84,7 +87,7 @@ const Resume: React.FC<ResumeProps> = ({ darkMode }) => {
           >
             <Download className="h-5 w-5" />
             <span>Download Resume</span>
-          </motion.button>
+          </motion.a>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-8" ref={cardsRef}>
